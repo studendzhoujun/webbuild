@@ -57,7 +57,7 @@ module.exports={
           exclude: /node_modules/
         }, {
           test: /\.vue(\?[^?]+)?$/,
-          loaders: ['vue']
+          loaders: ['vue-loader']
         },{
           test: /\.less$/,
           loaders: ['less-loader']
@@ -66,6 +66,9 @@ module.exports={
     },
     plugins: [
       // bannerPlugin
+     new HtmlWebpackPlugin({
+        template: './src/html/index.html',
+     })
     ]
   }
 
