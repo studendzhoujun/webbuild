@@ -17,10 +17,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 // )
 module.exports={
     entry: {
-      app: path.resolve('./src/index.js'),
+      app:path.resolve('./src/index.js'),
     },
     output: {
-      path: 'dist',
+      path:path.resolve(__dirname,'dist'),
       filename:'[name].web.js'
     },
     module: {
