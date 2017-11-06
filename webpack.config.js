@@ -61,6 +61,9 @@ module.exports={
         },{
           test: /\.less$/,
           loaders: ['less-loader']
+        },{
+          test:/\.(png|jpg)$/,
+          loaders:'url-loader?limit=8192&name=[path]/[name].[ext]'
         }
       ]
     },
