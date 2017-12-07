@@ -2,7 +2,7 @@
  * @Author: zhouJun 
  * @Date: 2017-12-07 13:55:21 
  * @Last Modified by: zhouJun
- * @Last Modified time: 2017-12-07 13:56:31
+ * @Last Modified time: 2017-12-07 15:35:52
  */
 
 const path = require('path')
@@ -12,6 +12,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports={
     entry: {
       app:path.resolve('./src/index.js'),
+    },
+    devtool:'inline-source-map',
+    devServer:{
+      contentBase:'./dist'
     },
     output: {
       path:path.resolve(__dirname,'dist'),

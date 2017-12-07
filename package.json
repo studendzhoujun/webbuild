@@ -7,6 +7,7 @@
     "build": "webpack",
     "serve": "serve -p 3333",
     "dev": "webpack --watch",
+    "start": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -34,6 +35,7 @@
     "url-loader": "^0.6.2",
     "vue-loader": "^10.0.2",
     "vue-template-compiler": "^2.1.10",
-    "webpack": "^2.7.0"
+    "webpack": "^2.7.0",
+    "webpack-dev-server": "^2.9.7"
   }
 }
