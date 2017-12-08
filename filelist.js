@@ -1,28 +1,26 @@
-function FileListPlugin(options) {}
+/*
+ * @Author: zhouJun 
+ * @Date: 2017-12-08 14:01:48 
+ * @Last Modified by: zhouJun
+ * @Last Modified time: 2017-12-08 14:36:54
+ */
 
-FileListPlugin.prototype.apply = function(compiler) {
-  compiler.plugin('emit', function(compilation, callback) {
-    // 创建一个头部字符串：
-    var filelist = 'In this build:\n\n';
-
-    // 检查所有编译好的资源文件：
-    // 为每个文件名新增一行
-    for (var filename in compilation.assets) {
-      filelist += ('- '+ filename +'\n');
-      console.log(filename)
-    }
-    // 把它作为一个新的文件资源插入到 webpack 构建中：
-    compilation.assets['filelist.md'] = {
-      source: function() {
-        return filelist;
-      },
-      size: function() {
-        return filelist.length;
+class FileListPlugin {
+      constructor(options){
+        // this.options = optons
       }
-    };
-
-    callback();
-  });
-};
-
+      apply(compiler){
+        compiler.plugin('emit',(compilation,callback)=>{
+          let filelist = 'In this building:\n\n'
+          for(let filename in compilation.assets){
+            filelist += ('- '+filename+'\n')
+          }
+          compilation.assets['filelist.md']={
+            source:()=> filelist,
+            size:()=> filelist.length
+          }
+          callback && callback()
+        })
+      }
+}
 module.exports = FileListPlugin;
